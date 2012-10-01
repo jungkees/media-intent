@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Gallery Client</title>
+<link rel="stylesheet" href="../main.css" media="all">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<!--script src="syntax.js"></script-->
+<!--script src="binaryajax.js"></script-->
+<!--script src="http://www.nihilogic.dk/labs/exif/exif.js"></script-->
+<script>
+function hidePopup(mode) {
+    $("#bg").css("display", "none");
+    if (mode == 0) {				
+        $("#popup-images").css("background", "#fff");
+        $("#popup-images").css("display", "none");
+        $("#metaData-images").children().remove();
+    } else {
+    	  $("#popup-videos").css("background", "#fff");
+    	  $("#popup-videos").css("display", "none");
+    	  $("#metaData-videos").children().remove();
+    }
+}
+</script>
+</head>
+<body>
+  <article>
+    <header>
+      <h1>Virtual Gallery Reading from Registered Galleries</h1>
+    </header>
+    <p>
+      Search hint: <input id="keyword" type="text" />
+      <button id="load-media">Load Media</button>
+      <button id="reset">Reset</button>
+    </p>
+    <p>For this demo, you can find useful information with "Web Inspector" <em><b>Console</b></em> logs. Press "F12"!<br>
+       Insert an <em><b>optional</b></em> search hint and click on "Load Media" button.</p>
+    <div id="lists">
+      <output id="list"></output>
+      <div id="bg"></div>
+      <div id="popup-images" onclick="hidePopup(0)">
+        <img id="originalImage" alt="close" />
+        <span id="metaData-images"></span>
+      </div>
+      <div id="popup-videos" onclick="hidePopup(1)">
+      	<!--video id="originalVideo" width="320" height="240" controls="controls" autoplay="autoplay">
+          Your browser does not support the VIDEO tag and/or RTP streams.
+        </video-->
+        <embed id="originalVideo" width="420" height="345"
+          type="application/x-shockwave-flash">
+        </embed>
+        <span id="metaData-videos"></span>
+      </div>
+    </div>
+  </article>
+  <script src="client.js"></script>
+</body>
+</html>

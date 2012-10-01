@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml' lang='en'>
+  <head>
+    <meta charset='utf-8'/>
+    <title>Media Over Intents (Pick Media Intent) Demo</title>
+    <link rel='stylesheet' href='main.css' media='all'/>
+  </head>
+  <body>
+    <article>
+      <header>
+        <h1>Media Over Intents (Pick Media Intent) Demo</h1>
+        <div class='author'>
+          <a href='mailto://jungkee.song@samsung.com'>Jungkee Song</a>
+        </div>
+      </header>
+      <section class='abstract'>
+        <p>
+          This is a demo of W3C DAP WG's Pick Media Intent specification.
+        </p>
+      </section>
+      <section>
+        <h2>Making It Work</h2>
+        <p>
+          First, you need to be running a reasonably recent version of Chrome (I think 19+ will do). In a real
+          version this would work with all browsers of course.
+        </p>
+        <p>
+          Then you need to download the extension that register the Intent. This demo provides two services
+          <a href='flickr.zip'>flickr search</a> and <a href='youtube.zip'>Youtube search</a>. In the
+          real version this could be registered by the service page directly, but that isn't supported just
+          yet.
+        </p>
+        <p>
+          Unpack the manifest, and follow these steps:
+        </p>
+        <ol>
+          <li>Open the <a href='chrome://chrome/extensions' target='_blank'>chrome://chrome/extensions</a> page</li>
+          <li>Check the “Developer mode” box if you haven't already</li>
+          <li>Click “Load unpacked extension” and select the directory that contains the manifest in the dialog</li>
+          <li>
+            This should install an extension with an icon and all.
+          </li>
+        </ol>
+        <p>
+          Once that's done, go to the <a href='client' target='_blank'>client page</a> (or you can write your own!). If 
+          you load media there, you should normally be prompted to select from registered media search services. 
+          Choosing that will open the service page, which in turn will allow you to search and pick some media objects.
+        </p>
+      </section>
+      <section>
+        <h2>Current Status of the Spec</h2>
+        <p>
+          Pick Media Intent is in FPWD status and DAP WG is moving the spec toward LC. You can share your valuable
+          feedback in <a href='mailto://public-device-apis@w3.org'>DAP's public email list</a>. Your reference service implementation is welcome to us!
+        </p>
+      </section>
+    </article>
+  </body>
+</html>

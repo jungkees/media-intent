@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Gallery Service in Flickr</title>
+<link rel="stylesheet" href="../../main.css" media="all">
+</head>
+<body>
+  <article>
+    <header>
+      <h1>Gallery Service in Flickr</h1>
+    </header>
+    <p>
+      Search keyword: <input id="keyword" type="text" />
+      <button id="load-images">Load Images</button>
+      <button id="choose-images">Choose Images</button>
+      <button id="cancel">Cancel</button>
+    </p>
+    <p id="instruction">For this demo, you can find useful information with "Web Inspector" <em><b>Console</b></em> logs. Press "F12"!<br>
+       Inser a search keyword and click on "Load Media" button.<br>
+       The max result is set to 25 for demo purpose.</p>
+    <div>
+      <input id="check-all" type="checkbox" />
+      Check all
+    </div>
+    <div>
+      <output id="list"></output>
+    </div>
+  </article>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="service.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Gallery Service - Video</title>
+  <link rel="stylesheet" href="../../main.css" media="all">
+</head>
+<body>
+  <article>
+    <header>
+      <h1>Picking Videos from YouTube</h1>
+    </header>
+    <p>
+    	Search keyword: <input id="keyword" type="text" />
+      <button id="load-videos">Load Videos</button>
+      <button id="choose-videos">Choose Videos</button>
+      <button id="cancel">Cancel</button>
+    </p>
+    <p id="instruction">For this demo, you can find useful information with "Web Inspector" <em><b>Console</b></em> logs. Press "F12"!<br>
+       Insert a search keyword and click on "Load Videos" button.<br>
+       The max result is set to 25 for demo purpose.</p>
+    <div>
+      <input id="check-all" type="checkbox" />
+      Check all
+    </div>
+    <div>
+      <output id="list"></output>
+    </div>
+  </article>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>
+  	var intent = window.intent || window.webkitIntent;
+  	var res = [];
+    var items = [];
+    var count = 0;
+    
+    function listEvents(root) {
+    	  var date = new Date();
+    	  //console.log(date);
+
+        var resObject = root.data;
+        //console.log(resObject); //.items[0].thumbnail.sqDefault
+        
+        $("#check-all").parent().show();
+
+        $.each(resObject.items, function (i, ref) {
+        	  var mediaObject = {};
+            var mediaContent = {};
+            // console.log(ref.content[1]);
+            mediaContent.uri = ref.content[5];
+            mediaObject.content = mediaContent;
+
+            var thumbnailObject = {};
+            thumbnailObject.uri = ref.thumbnail.sqDefault;
+            mediaObject.thumbnail = thumbnailObject;
+            
+            mediaObject.type = "video";
+            mediaObject.category = ref.category;
+            mediaObject.description = ref.description;
+            mediaObject.duration = ref.duration;
+            mediaObject.id = ref.id;
+            mediaObject.likeCount = ref.likeCount;
+            mediaObject.rating = ref.rating;
+            mediaObject.ratingCount = ref.ratingCount;
+            mediaObject.title = ref.title;
+
+            mediaObject.author = "Unknown";
+
+            var coords = {};
+            coords.latitude = 0.00000;
+            coords.longitude = 0.00000;
+            var position = {};
+            position.coords = coords;
+            mediaObject.location = position;
+
+            mediaObject.tags = ref.tags;
+            mediaObject.publishedDate = ref.uploaded;
+            
+            mediaObject.viewCount = ref.viewCount;
+
+            items.push(mediaObject);
+            
+            var $item = $('<div style="float:left"><div align="center"><img class="thumb" src="' + ref.thumbnail.sqDefault + '" title="' + ref.id + '" /></div><div style="font-size:70%" align="center"><input class="box" id="check_' + i + '" type="checkbox" />' + ref.id + '</div></div>');
+            $("#list").append($item);
+        });
+        if (count++ == 0)
+            $("#instruction").append('<br><b>Check photos that you want to deliver to client and click on "Choose Images" button</b>');
+        console.log(items);
+        //window.intent.postResult(items);
+    }
+  </script>
+  <script src="service.js"></script>
+</body>
+</html>

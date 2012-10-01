@@ -1,0 +1,84 @@
+.thumb {
+  height: 75px;
+  border: 1px solid #000;
+  margin: 10px 5px 0 0;
+  cursor:pointer;
+}
+
+#bg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: #000;
+  left: 0;
+  top: 0;
+  opacity: 0.5;
+				
+  display:none;
+}
+
+#popup-images {
+  font-size:0.8em;
+  text-align: left;
+  border: 10px solid #fff;
+  background:#fff; 
+  position: absolute;
+  left:0%;
+  top: 0%;
+  cursor: pointer;
+				
+  display: none;
+}
+
+#popup-videos {
+  font-size:0.8em;
+  text-align: left;
+  border: 10px solid #fff;
+  background:#fff; 
+  position: absolute;
+  left:0%;
+  top: 0%;
+  cursor: pointer;
+				
+  display: none;
+}
+
+body {
+  background-color: #ffffff;
+  font-family:    "Times New Roman",Georgia,Serif;
+  font-weight:    200;
+}
+
+article {
+    margin: auto;
+    width:  960px;
+}
+
+h1
+{
+	font-family:"Times New Roman",Georgia,Serif;
+        font-variant: small-caps;
+        border-bottom:  1px solid #999;
+}
+
+header .author {
+    text-align: right;
+    font-weight:    100;
+    letter-spacing: 1px;
+    font-style: italic;
+}
+header .author a {
+    color:  #333;
+    text-decoration:    none;
+    border-bottom:  1px dotted #999;
+}
+
+p
+{
+	font-family:"Times New Roman",Georgia,Serif;
+}
+
+.abstract {
+    font-style: italic;
+    font-size:1.2em;
+}
